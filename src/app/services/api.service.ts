@@ -1,31 +1,30 @@
+//Importaciones realizadas para el funcionamiento del servicio
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';  // Para hacer peticiones HTTP
-import { Observable } from 'rxjs'; // Para manejar la respuesta de la API
-import { map } from 'rxjs/operators'; // Para manipular la respuesta
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
+//Tipo de datos utilizada, define la estructura que tendrán los datos Usuario
+export interface User {
+  id: number;
+  email: string;
+  password: string;
+  name: string;
+}
+
+//El servicio estará a nivel de aplicación completa, se puede usar en cualquier parte de la aplicación
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root', 
 })
+
+//Definimos la clase api service, que tiene la propiedad de la URL de la API
 export class ApiService {
+  private apiUrl = 'https://fakestoreapi.com/users';
 
-  // URL de la API (puedes cambiarla por la URL de tu API real)
-  private apiUrl = 'https://fakestoreapi.com/users';  
+  //Recibe una instancia de HttpCliente y la asigna a la propiedad privada http que permite hacer solicitudes
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  // Método para obtener los usuarios desde la API
-  getUsers(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);  // Regresa los usuarios como un observable
-  }
-
-  // Método para validar el usuario
-  validateUser(email: string, password: string): Observable<boolean> {
-    return new Observable((observer) => {
-      this.getUsers().subscribe((users) => {
-        const user = users.find(u => u.email === email && u.password === password);
-        observer.next(user != null);
-        observer.complete();
-      });
-    });
+  //Obtenemos los datos de los usuarios de la api, obteniendo todos los datos en un arreglo
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiUrl);
   }
 }

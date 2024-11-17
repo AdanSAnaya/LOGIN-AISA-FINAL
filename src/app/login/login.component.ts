@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ApiService} from '../services/api.service'; 
-import { User } from '../api.service';
+import { User } from '../services/api.service';
 import { HttpClientModule } from '@angular/common/http';
  
 //COmponente creado nombre de la etiqueta, etc.
