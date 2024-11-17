@@ -1,0 +1,73 @@
+/* Fondo dinámico con gradiente de tonos azules */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(0, 115, 230, 1) 0%, rgba(0, 158, 223, 1) 50%, rgba(0, 207, 255, 1) 100%);
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9); 
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mat-card-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+mat-card-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #0073e6; 
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+mat-form-field .mat-form-field-label {
+  color: #0073e6; 
+}
+
+button {
+  width: 100%;
+  background-color: #0073e6; 
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+button:disabled {
+  background-color: #b3d0f0; 
+}
+
+mat-error {
+  color: #ff4747;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 600px) {
+  .login-card {
+    padding: 20px;
+  }
+
+  mat-card-title {
+    font-size: 24px;
+  }
+}
