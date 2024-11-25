@@ -2,22 +2,24 @@
   <mat-card class="login-card">
     <mat-card-header>
       <mat-card-title>Bienvenido</mat-card-title>
+      <br>
+      <br>
     </mat-card-header>
     <mat-card-content>
       <form (ngSubmit)="onLogin()" #loginForm="ngForm">
-        <mat-form-field appearance="fill" class="form-field">
+        <mat-form-field appearance="outline" class="form-field">
           <mat-label>Correo Electrónico</mat-label>
           <input matInput type="email" [(ngModel)]="email" name="email" required />
-          <mat-error *ngIf="loginForm.controls['email']?.hasError('required')">Es Necesario Ingresar un Correo</mat-error>
+          <mat-error *ngIf="loginForm.controls['email']?.hasError('required')">Es necesario ingresar un correo</mat-error>
         </mat-form-field>
-        <br />
-        <mat-form-field appearance="fill" class="form-field">
+        <mat-form-field appearance="outline" class="form-field">
           <mat-label>Contraseña</mat-label>
           <input matInput type="password" [(ngModel)]="password" name="password" required />
-          <mat-error *ngIf="loginForm.controls['password']?.hasError('required')">Es Necesario Ingresar la Contraseña</mat-error>
+          <mat-error *ngIf="loginForm.controls['password']?.hasError('required')">Es necesario ingresar la contraseña</mat-error>
         </mat-form-field>
-        <br />
-        <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Iniciar Sesión</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">
+          Iniciar Sesión
+        </button>
       </form>
       <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
     </mat-card-content>

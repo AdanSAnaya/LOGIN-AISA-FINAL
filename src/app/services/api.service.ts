@@ -9,6 +9,10 @@ export interface User {
   email: string;
   password: string;
   name: string;
+  role: string;
+  avatar: string;
+  creationAt: string;
+  updatedAt: string;
 }
 
 //El servicio estará a nivel de aplicación completa, se puede usar en cualquier parte de la aplicación
@@ -18,7 +22,7 @@ export interface User {
 
 //Definimos la clase api service, que tiene la propiedad de la URL de la API
 export class ApiService {
-  private apiUrl = 'https://fakestoreapi.com/users';
+  private apiUrl = 'https://api.escuelajs.co/api/v1/users';
 
   //Recibe una instancia de HttpCliente y la asigna a la propiedad privada http que permite hacer solicitudes
   constructor(private http: HttpClient) {}

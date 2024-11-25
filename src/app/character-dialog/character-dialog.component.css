@@ -1,0 +1,56 @@
+.dialog-image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-bottom: 16px;
+  border: 3px solid #00b5cc; /* Color vibrante para enmarcar */
+}
+
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Roboto', Arial, sans-serif;
+  background: linear-gradient(135deg, #596465, #414b4c); /* Fondo degradado */
+  padding: 16px;
+  border-radius: 8px;
+  color: #e0f7fa; /* Texto claro */
+}
+
+mat-dialog-content p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #e0f7fa; /* Texto contrastante */
+}
+
+mat-dialog-content strong {
+  color: #ffea00; /* Resaltado amarillo */
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  padding: 8px;
+}
+
+button[mat-button] {
+  background-color: #ff5722; /* Botón naranja */
+  color: white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button[mat-button]:hover {
+  background-color: #e64a19; /* Más oscuro en hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px); /* Efecto de levitación */
+}

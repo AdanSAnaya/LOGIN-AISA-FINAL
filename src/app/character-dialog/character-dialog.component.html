@@ -1,0 +1,48 @@
+<h2 mat-dialog-title>{{ data.name }}</h2>
+<mat-dialog-content>
+  <div>
+    <img [src]="data.image" alt="{{ data.name }}" class="dialog-image">
+
+    <!-- Modo solo lectura o modo edición -->
+    <div *ngIf="!isEditing">
+      <p><strong>Especie:</strong> {{ data.species }}</p>
+      <p><strong>Estado:</strong> {{ data.status }}</p>
+      <p><strong>Género:</strong> {{ data.gender }}</p>
+      <p><strong>Origen:</strong> {{ data.origin.name }}</p>
+      <p><strong>Ubicación actual:</strong> {{ data.location.name }}</p>
+    </div>
+
+    <!-- Modo edición -->
+    <div *ngIf="isEditing">
+      <mat-form-field appearance="fill">
+        <mat-label>Especie</mat-label>
+        <input matInput [(ngModel)]="data.species">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Estado</mat-label>
+        <input matInput [(ngModel)]="data.status">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Género</mat-label>
+        <input matInput [(ngModel)]="data.origin.name">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Género</mat-label>
+        <input matInput [(ngModel)]="data.location.name">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Género</mat-label>
+        <input matInput [(ngModel)]="data.gender">
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close *ngIf="!isEditing">Cerrar</button>
+  <button mat-button (click)="saveChanges()" *ngIf="isEditing">Guardar</button>
+  <button mat-button (click)="enableEdit()" *ngIf="!isEditing">Editar</button>
+</mat-dialog-actions>

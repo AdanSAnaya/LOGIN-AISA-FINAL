@@ -1,10 +1,35 @@
+/* Estilos generales */
 .home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   height: 100vh;
-  background-color: #e7f3ff;
+  background: linear-gradient(135deg, #f0f4f8, #cce7f0); /* Fondo suave con gradiente */
+}
+
+.character-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.filter-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+mat-icon-button {
+  background-color: #3498db;
+  color: white;
+  border-radius: 30%;
+  padding: 6px;
+  transition: background-color 0.3s;
+}
+
+mat-icon-button:hover {
+  background-color: #2980b9;
 }
 
 .home-toolbar {
@@ -12,49 +37,124 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
-  background-color: #007acc;
+  z-index: 2;
+  background: #2c3e50;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 10px;
 }
 
 .toolbar-title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
-  color: white;
+  color: #ecf0f1;
 }
 
 .spacer {
-  flex: 1 1 auto;
+  flex: 1;
 }
 
 .home-card {
   width: 90%;
-  max-width: 600px;
-  margin-top: 80px; 
-  padding: 20px;
-  background-color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  max-width: 100%;
+  padding: 40px 20px 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 80px;
 }
 
-mat-card-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #006bb3; 
+.home-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 button {
-  background-color: #0099ff; 
+  background-color: #3498db;
   color: white;
-  border-radius: 5px;
-  padding: 8px 20px;
+  border-radius: 35px;
+  padding: 10px 30px;
   font-weight: bold;
+  margin-right: 10px;
+  border: none;
+  box-shadow:  9px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background-color: #006bb3;
+  background-color: #2980b9;
+  transform: translateY(-2px);
 }
 
-mat-card-content p {
-  font-size: 16px;
-  color: #333; 
+button:active {
+  transform: translateY(2px);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.user-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+  border: 3px solid #3498db;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-details p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #7f8c8d;
+  line-height: 1.5;
+}
+
+.character-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table-header {
+  font-weight: bold;
+  text-align: center;
+  background-color: #3498db;
+  color: rgb(0, 0, 0);
+  padding: 12px 10px;
+  cursor: pointer;
+}
+
+.table-cell {
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.actions-cell button {
+  margin: 0 5px;
+}
+
+.mat-sort-header {
+  padding-right: 10px;
+}
+
+/* Título de la tabla */
+.table-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+mat-paginator {
+  margin-top: 15px;
 }

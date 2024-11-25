@@ -53,6 +53,7 @@ export class LoginComponent {
         );
         if (user) {
           console.log('Inicio de sesión exitoso');
+          localStorage.setItem('user', JSON.stringify(user));
           this.router.navigateByUrl('/home'); // Redirige si las credenciales son correctas
         } else {
           this.errorMessage = 'Correo o contraseña incorrectos'; // Muestra mensaje de error
