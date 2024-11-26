@@ -43,17 +43,7 @@ Los botones de acción consisten en: Visualizar la información adicional del re
 
 ![image](https://github.com/user-attachments/assets/62fb5606-465b-48b4-af69-f2218218aeba)
 
-3.- Estructura final del componente   
-
-
-4.-  
-
-
-5.-  
-
-
-6.-  
-
-
+3.- Estructura final del proyecto     
+![image](https://github.com/user-attachments/assets/4b732922-3d00-4f64-a301-2bafbbf75401)
 
 
