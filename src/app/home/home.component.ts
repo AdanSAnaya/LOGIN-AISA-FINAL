@@ -7,16 +7,17 @@ import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';  // IMPORTA ESTE MÓDULO
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';  
 import { RickMortyService } from '../services/rick-morty.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog'; // Importar MatDialog
-import { CharacterDialogComponent } from '../character-dialog/character-dialog.component'; // Importar el componente de diálogo
+import { CharacterDialogComponent } from '../character-dialog/character-dialog.component'; 
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSort, MatSortModule } from '@angular/material/sort';  // Agregar esta importación
+import { MatSort, MatSortModule } from '@angular/material/sort'; 
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 
 @Component({
@@ -78,6 +79,14 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  deleteCharacter(character: any): void {
+    const index = this.dataSource.data.indexOf(character);
+    if (index !== -1) {
+      this.dataSource.data.splice(index, 1);  // Elimina el personaje de la lista
+      this.dataSource._updateChangeSubscription();  // Actualiza la tabla
+    }
+  }
+
   onPageChange(event: any): void {
     this.getCharacters(event.pageIndex + 1);
   }
@@ -99,18 +108,24 @@ export class HomeComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  
-  
 
-  deleteCharacter(character: any): void {
-    const index = this.dataSource.data.indexOf(character);
-    if (index !== -1) {
-      this.dataSource.data.splice(index, 1);  // Elimina el personaje de la lista
-      this.dataSource._updateChangeSubscription();  // Actualiza la tabla
-    }
+  openConfirmDialog(character: any): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '300px',
+      data: {
+        title: 'Confirmar eliminación',
+        message: `¿Estás seguro de que deseas eliminar a "${character.name}"?`,
+      },
+    });
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        // Si se confirmó, realiza la acción de eliminar
+        this.deleteCharacter(character);
+      }
+    });
   }
 
-  // Función para editar el personaje
   editCharacter(character: any): void {
     const editedCharacter = { ...character };
     const dialogRef = this.dialog.open(CharacterDialogComponent, { data: editedCharacter });

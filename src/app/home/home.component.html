@@ -21,7 +21,7 @@
         </button>
       </mat-menu>
 
-      <span class="toolbar-title">| Bienvenido, {{ user.username }}</span>
+      <span class="toolbar-title">| Bienvenido, {{ user.name }}</span>
       <span class="spacer"></span>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -91,7 +91,7 @@
               <mat-icon>edit</mat-icon>
             </button>
 
-            <button mat-icon-button (click)="deleteCharacter(character)">
+            <button mat-icon-button (click)="openConfirmDialog(character)">
               <mat-icon>delete</mat-icon>
             </button>
           </td>
